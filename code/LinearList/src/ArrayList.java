@@ -1,3 +1,6 @@
+/**
+ * @author BlackKnife lding1003@gmail.com
+ */
 public class ArrayList<T> {
 
     private Object[] data;
@@ -54,18 +57,15 @@ public class ArrayList<T> {
      */
     public boolean insert(int index, T element) {
         if (this.len == this.capacity) return false; // 先确保有空间可以条件
-        if (index < 0 || index > this.len) return false; // 检查 index 是否合法
+        if (index < 0 || index >= this.len) return false; // 检查 index 是否合法
 
-        if (index == this.len) return this.add(element);
-        else {
-            if (element == null) return false; // 排除 element 为 null 的情况
-            for (int i = this.len; i > index; i--) {
-                this.data[i] = this.data[i - 1];
-            }
-            this.data[index] = element;
-            this.len++;
-            return true;
+        if (element == null) return false; // 排除 element 为 null 的情况
+        for (int i = this.len; i > index; i--) {
+            this.data[i] = this.data[i - 1];
         }
+        this.data[index] = element;
+        this.len++;
+        return true;
     }
 
     /**
@@ -100,7 +100,7 @@ public class ArrayList<T> {
     }
 
     /**
-     * 清空数组
+     * 清空数组，也可以直接把 len 设置为 0，不重新创建数组对象
      */
     public void clear() {
         this.data = new Object[this.capacity];
