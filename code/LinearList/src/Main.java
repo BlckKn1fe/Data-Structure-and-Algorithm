@@ -3,6 +3,32 @@ public class Main {
     public static void main(String[] args) {
 //        testArrayList();
 //        testLinkedList();
+//        testArrayStack();
+
+    }
+
+    private static void testArrayStack() {
+        Stack<Integer> s = new Stack<>(5);
+        System.out.println("s.isEmpty(): " + s.isEmpty());
+        System.out.println("s.isFull(): " + s.isFull());
+        System.out.println("s.push(1): " + s.push(1));
+        System.out.println("s.push(2): " + s.push(2));
+        System.out.println("s.push(3): " + s.push(3));
+        System.out.println("s.push(4): " + s.push(4));
+        System.out.println("s.push(5): " + s.push(5));
+        System.out.println("s.isEmpty(): " + s.isEmpty());
+        System.out.println("s.isFull(): " + s.isFull());
+        System.out.println("s.length(): " + s.length());
+        System.out.println("s.peek():" + s.peek());
+        System.out.println("s.pop():" + s.pop());
+        System.out.println("s.length(): " + s.length());
+        System.out.println("s.isEmpty(): " + s.isEmpty());
+        System.out.println("s.isFull(): " + s.isFull());
+        System.out.println("s.clear(): ");
+        s.clear();
+        System.out.println("s.length(): " + s.length());
+        System.out.println("s.isEmpty(): " + s.isEmpty());
+        System.out.println("s.isFull(): " + s.isFull());
     }
 
     public static void testLinkedList() {
