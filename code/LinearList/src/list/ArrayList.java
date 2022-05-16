@@ -1,6 +1,9 @@
+package list;
+
 /**
  * @author BlackKnife lding1003@gmail.com
  */
+// TODO: 添加 ensureCapacity
 public class ArrayList<T> {
 
     private Object[] data;
@@ -31,8 +34,8 @@ public class ArrayList<T> {
      * @return 目标元素
      */
     public T get(int index) {
-        if (index < 0 || index >= this.len) return null;
-        return (T)this.data[index];
+        if (index < 0 || index >= len) return null;
+        return (T)data[index];
     }
 
     /**
@@ -41,11 +44,11 @@ public class ArrayList<T> {
      * @return 添加结果
      */
     public boolean add(T element) {
-        if (this.len == this.capacity) return false; // 添加失败，满了
+        if (len == capacity) return false; // 添加失败，满了
         if (element == null) return false; // 不允许添加 null
 
-        this.data[len] = element;
-        this.len++;
+        data[len] = element;
+        len++;
         return true; // 添加成功
     }
 
@@ -56,15 +59,15 @@ public class ArrayList<T> {
      * @return 添加结果
      */
     public boolean insert(int index, T element) {
-        if (this.len == this.capacity) return false; // 先确保有空间可以条件
-        if (index < 0 || index >= this.len) return false; // 检查 index 是否合法
+        if (len == capacity) return false; // 先确保有空间可以条件
+        if (index < 0 || index >= len) return false; // 检查 index 是否合法
 
         if (element == null) return false; // 排除 element 为 null 的情况
-        for (int i = this.len; i > index; i--) {
-            this.data[i] = this.data[i - 1];
+        for (int i = len; i > index; i--) {
+            data[i] = data[i - 1];
         }
-        this.data[index] = element;
-        this.len++;
+        data[index] = element;
+        len++;
         return true;
     }
 
@@ -74,9 +77,9 @@ public class ArrayList<T> {
      * @return 目标元素索引值
      */
     public int indexOf(T element) {
-        if (element != null && this.len > 0) {
-            for (int i = 0; i < this.len; i++) {
-                if (element.equals(this.data[i])) return i;
+        if (element != null && len > 0) {
+            for (int i = 0; i < len; i++) {
+                if (element.equals(data[i])) return i;
             }
         }
         return -1;
@@ -88,13 +91,13 @@ public class ArrayList<T> {
      * @return 返回被删除的元素
      */
     public T delete(int index) {
-        if (index < 0 || index >= this.len) throw new RuntimeException("Index Out of Bounce");
+        if (index < 0 || index >= len) throw new RuntimeException("Index Out of Bounce");
 
-        T element = (T)this.data[index];
+        T element = (T)data[index];
         for (int i = index + 1; i < len; i++) {
-            this.data[i - 1] = this.data[i];
+            data[i - 1] = data[i];
         }
-        this.data[len - 1] = null;
+        data[len - 1] = null;
         len--;
         return element;
     }
@@ -103,30 +106,30 @@ public class ArrayList<T> {
      * 清空数组，也可以直接把 len 设置为 0，不重新创建数组对象
      */
     public void clear() {
-        this.data = new Object[this.capacity];
-        this.len = 0;
+        data = new Object[capacity];
+        len = 0;
     }
 
     /**
      * 判断数组是否为空
      * @return 为空则返回 true，反之为 false
      */
-    public boolean isEmpty() { return this.len == 0; }
+    public boolean isEmpty() { return len == 0; }
 
     /**
      * 获取当前数组内元素的个数
      * @return 元素个数
      */
-    public int length() { return this.len; }
+    public int length() { return len; }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("[");
-        if (this.len > 0) {
-            sb.append(this.data[0]);
-            for (int i = 1; i < this.len; i++) {
-                sb.append(", ").append(this.data[i]);
+        if (len > 0) {
+            sb.append(data[0]);
+            for (int i = 1; i < len; i++) {
+                sb.append(", ").append(data[i]);
             }
         }
         sb.append("]");

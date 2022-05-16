@@ -1,34 +1,47 @@
+import list.ArrayList;
+import list.LinkedList;
+import queue.LinkedQueue;
+import queue.Queue;
+import queue.SeqQueue;
+
 public class Main {
 
     public static void main(String[] args) {
+
+
 //        testArrayList();
 //        testLinkedList();
 //        testArrayStack();
+        testSeqQueue();
 
     }
 
-    private static void testArrayStack() {
-        Stack<Integer> s = new Stack<>(5);
-        System.out.println("s.isEmpty(): " + s.isEmpty());
-        System.out.println("s.isFull(): " + s.isFull());
-        System.out.println("s.push(1): " + s.push(1));
-        System.out.println("s.push(2): " + s.push(2));
-        System.out.println("s.push(3): " + s.push(3));
-        System.out.println("s.push(4): " + s.push(4));
-        System.out.println("s.push(5): " + s.push(5));
-        System.out.println("s.isEmpty(): " + s.isEmpty());
-        System.out.println("s.isFull(): " + s.isFull());
-        System.out.println("s.length(): " + s.length());
-        System.out.println("s.peek():" + s.peek());
-        System.out.println("s.pop():" + s.pop());
-        System.out.println("s.length(): " + s.length());
-        System.out.println("s.isEmpty(): " + s.isEmpty());
-        System.out.println("s.isFull(): " + s.isFull());
-        System.out.println("s.clear(): ");
-        s.clear();
-        System.out.println("s.length(): " + s.length());
-        System.out.println("s.isEmpty(): " + s.isEmpty());
-        System.out.println("s.isFull(): " + s.isFull());
+    public static void testSeqQueue() {
+        Queue<Integer> queue = new LinkedQueue<>();
+        System.out.println("queue.isEmpty(): " + queue.isEmpty());
+        System.out.println("queue.size(): " + queue.size());
+        System.out.println("queue.add(1): " + queue.add(1));
+        System.out.println("queue.add(2): " + queue.add(2));
+        System.out.println("queue.add(3): " + queue.add(3));
+        System.out.println("queue.add(4): " + queue.add(4));
+        System.out.println("queue.add(5): " + queue.add(5));
+        System.out.println("queue.isEmpty(): " + queue.isEmpty());
+        System.out.println("queue.size(): " + queue.size());
+        System.out.println("queue.peek(): " + queue.peek());
+        System.out.println("queue.remove(): " + queue.remove());
+        System.out.println("queue.remove(): " + queue.remove());
+        System.out.println("queue.remove(): " + queue.remove());
+        System.out.println("queue.isEmpty(): " + queue.isEmpty());
+        System.out.println("queue.size(): " + queue.size());
+        System.out.println("queue.clear(): ");
+        queue.clear();
+        System.out.println("queue.size(): " + queue.size());
+        System.out.println("queue.isEmpty(): " + queue.isEmpty());
+        System.out.println("queue.add(1): " + queue.add(1));
+        System.out.println("queue.add(2): " + queue.add(2));
+        System.out.println("queue.add(3): " + queue.add(3));
+        System.out.println("queue.size(): " + queue.size());
+        System.out.println("queue.isEmpty(): " + queue.isEmpty());
     }
 
     public static void testLinkedList() {
